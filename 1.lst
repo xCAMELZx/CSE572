@@ -1,0 +1,13 @@
+SQL> spo
+currently spooling to 1.lst
+SQL> desc HR.jobs;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ JOB_TITLE                                 NOT NULL VARCHAR2(35)
+ MIN_SALARY                                         NUMBER(6)
+ MAX_SALARY                                         NUMBER(6)
+
+SQL> spo
+currently spooling to 1.lst
+SQL> spo off

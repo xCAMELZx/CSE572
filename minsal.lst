@@ -1,0 +1,30 @@
+SQL> start minsal
+
+JOB_ID     MIN_SALARY                                                           
+---------- ----------                                                           
+AD_PRES         20080                                                           
+AD_VP           15000                                                           
+AD_ASST          3000                                                           
+FI_MGR           8200                                                           
+FI_ACCOUNT       4200                                                           
+AC_MGR           8200                                                           
+AC_ACCOUNT       4200                                                           
+SA_MAN          10000                                                           
+SA_REP           6000                                                           
+PU_MAN           8000                                                           
+PU_CLERK         2500                                                           
+
+JOB_ID     MIN_SALARY                                                           
+---------- ----------                                                           
+ST_MAN           5500                                                           
+ST_CLERK         2008                                                           
+SH_CLERK         2500                                                           
+IT_PROG          4000                                                           
+MK_MAN           9000                                                           
+MK_REP           4000                                                           
+HR_REP           4000                                                           
+PR_REP           4500                                                           
+
+19 rows selected.
+
+SQL> spo off

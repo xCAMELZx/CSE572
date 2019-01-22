@@ -1,0 +1,94 @@
+SQL> r
+SP2-0103: Nothing in SQL buffer to run.
+SQL> SELECT job_id, last_name ||', '|| first_name AS Employee, salary
+  2  FROM HR.employees
+  3  WHERE salary > 5000
+  4  ORDER BY job_id, last_name;
+
+JOB_ID     EMPLOYEE                                            SALARY           
+---------- ----------------------------------------------- ----------           
+AC_ACCOUNT Gietz, William                                        8300           
+AC_MGR     Higgins, Shelley                                     12008           
+AD_PRES    King, Steven                                         24000           
+AD_VP      De Haan, Lex                                         17000           
+AD_VP      Kochhar, Neena                                       17000           
+FI_ACCOUNT Chen, John                                            8200           
+FI_ACCOUNT Faviet, Daniel                                        9000           
+FI_ACCOUNT Popp, Luis                                            6900           
+FI_ACCOUNT Sciarra, Ismael                                       7700           
+FI_ACCOUNT Urman, Jose Manuel                                    7800           
+FI_MGR     Greenberg, Nancy                                     12008           
+
+JOB_ID     EMPLOYEE                                            SALARY           
+---------- ----------------------------------------------- ----------           
+HR_REP     Mavris, Susan                                         6500           
+IT_PROG    Ernst, Bruce                                          6000           
+IT_PROG    Hunold, Alexander                                     9000           
+MK_MAN     Hartstein, Michael                                   13000           
+MK_REP     Fay, Pat                                              6000           
+PR_REP     Baer, Hermann                                        10000           
+PU_MAN     Raphaely, Den                                        11000           
+SA_MAN     Cambrault, Gerald                                    11000           
+SA_MAN     Errazuriz, Alberto                                   12000           
+SA_MAN     Partners, Karen                                      13500           
+SA_MAN     Russell, John                                        14000           
+
+JOB_ID     EMPLOYEE                                            SALARY           
+---------- ----------------------------------------------- ----------           
+SA_MAN     Zlotkey, Eleni                                       10500           
+SA_REP     Abel, Ellen                                          11000           
+SA_REP     Ande, Sundar                                          6400           
+SA_REP     Banda, Amit                                           6200           
+SA_REP     Bates, Elizabeth                                      7300           
+SA_REP     Bernstein, David                                      9500           
+SA_REP     Bloom, Harrison                                      10000           
+SA_REP     Cambrault, Nanette                                    7500           
+SA_REP     Doran, Louise                                         7500           
+SA_REP     Fox, Tayler                                           9600           
+SA_REP     Grant, Kimberely                                      7000           
+
+JOB_ID     EMPLOYEE                                            SALARY           
+---------- ----------------------------------------------- ----------           
+SA_REP     Greene, Danielle                                      9500           
+SA_REP     Hall, Peter                                           9000           
+SA_REP     Hutton, Alyssa                                        8800           
+SA_REP     Johnson, Charles                                      6200           
+SA_REP     King, Janette                                        10000           
+SA_REP     Kumar, Sundita                                        6100           
+SA_REP     Lee, David                                            6800           
+SA_REP     Livingston, Jack                                      8400           
+SA_REP     Marvins, Mattea                                       7200           
+SA_REP     McEwen, Allan                                         9000           
+SA_REP     Olsen, Christopher                                    8000           
+
+JOB_ID     EMPLOYEE                                            SALARY           
+---------- ----------------------------------------------- ----------           
+SA_REP     Ozer, Lisa                                           11500           
+SA_REP     Sewall, Sarath                                        7000           
+SA_REP     Smith, William                                        7400           
+SA_REP     Smith, Lindsey                                        8000           
+SA_REP     Sully, Patrick                                        9500           
+SA_REP     Taylor, Jonathon                                      8600           
+SA_REP     Tucker, Peter                                        10000           
+SA_REP     Tuvault, Oliver                                       7000           
+SA_REP     Vishney, Clara                                       10500           
+ST_MAN     Fripp, Adam                                           8200           
+ST_MAN     Kaufling, Payam                                       7900           
+
+JOB_ID     EMPLOYEE                                            SALARY           
+---------- ----------------------------------------------- ----------           
+ST_MAN     Mourgos, Kevin                                        5800           
+ST_MAN     Vollman, Shanta                                       6500           
+ST_MAN     Weiss, Matthew                                        8000           
+
+58 rows selected.
+
+SQL> @
+SP2-1506: START, @ or @@ command has no arguments
+SQL> !
+
+SQL> show spool
+spool ON
+SQL> set spool text.txt
+SP2-0158: unknown SET option "spool"
+SQL> spool text.txt
