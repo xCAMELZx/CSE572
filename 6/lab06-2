@@ -1,0 +1,40 @@
+Insert Statements: 
+
+insert into dept values('&deptNumber','&deptname','&mgr');
+
+To Enter Data into Table for Employees: 
+-----------------------------------------
+INSERT INTO EMP VALUES ('1000', 'Steven', 'King', '731 Fondren,Houston, Tx', 'M', '300000','Programmer', '60');
+INSERT INTO EMP VALUES ('1007', 'Diana', 'Lorentz', '638 voss,Bellaire, Tx', 'F', '240000', 'Clerk','20');
+INSERT INTO EMP VALUES ('2002', 'Pat', 'Fay', '3321 Castle,Spring, Tx', 'F', '150000', 'Sales-Representative', '80');
+INSERT INTO EMP VALUES ('1760', 'Jonathan', 'Taylor', '561 Rice,Houston, Tx', 'M', '600000','Manager', '20');
+INSERT INTO EMP VALUES ('1740', 'Ellen', 'Abel', '890 Stone,Houston, Tx', 'F', '650000', 'Manager','60');
+INSERT INTO EMP VALUES ('2060', 'William', 'Gietz', '450 Berry,Bellaire, Tx', 'M', '650000','Manager', '80');
+INSERT INTO EMP VALUES ('2000', 'Jennifer', 'Whalen', '980 Fire Oak,Humble, Tx', 'F', '280000','Clerk', '60');
+INSERT INTO EMP VALUES ('1444', 'Peter', 'Vargas', '975 Dallas, Houston, Tx', 'M', '20000', 'Sales-Representative', '80');
+
+To Enter Data into Table for Department: 
+------------------------------------------
+
+INSERT INTO DEPT VALUES ('20', 'Marketing' ,' 1760');
+INSERT INTO DEPT VALUES ('60', 'IT' ,' 1740');
+INSERT INTO DEPT VALUES ('80', 'Sales' ,' 2060');
+
+To Enter Data into Table for Project: 
+--------------------------------------
+NSERT INTO PROJ VALUES ('10', 'Product X', '20');
+INSERT INTO PROJ VALUES ('20', 'Product Y', '20');
+INSERT INTO PROJ VALUES ('30', 'Computerization', '60');
+INSERT INTO PROJ VALUES ('40', 'Product Z', '80');
+INSERT INTO PROJ VALUES ('50', 'Mobile Apps', '60');
+
+To Enter Data Into Table for Employee_Project:
+----------------------------------------------
+INSERT INTO EMP_PROJ VALUES ('1000', '30', '32.5');
+INSERT INTO EMP_PROJ VALUES ('1000', '50', '7.5');
+INSERT INTO EMP_PROJ VALUES ('2002', '10', '40.0');
+INSERT INTO EMP_PROJ VALUES ('1444', '20', '20.0');
+INSERT INTO EMP_PROJ VALUES ('1760', '10', '5.0');
+INSERT INTO EMP_PROJ VALUES ('1760', '20', '10.0');
+INSERT INTO EMP_PROJ VALUES ('1740', '50', '15.0');
+INSERT INTO EMP_PROJ VALUES ('2060', '40', '12.0');
