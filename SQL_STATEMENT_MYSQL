@@ -1,0 +1,249 @@
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Game`
+
+CREATE TABLE Game
+(
+ inventoryID    number(10,0) NOT NULL ,
+ gameMode       varchar2(45) NOT NULL ,
+ developers     varchar2(255) NOT NULL ,
+ rating         number(10,0) NOT NULL ,
+ platform       varchar2(255) NOT NULL ,
+ genre          varchar2(255) NOT NULL ,
+ publishers     varchar2(255) NOT NULL ,
+ themes         varchar2(255) NOT NULL ,
+ perspective    varchar2(45) NOT NULL ,
+ description    linestring NOT NULL ,
+ availablity    varchar2(1) NOT NULL ,
+ inventoryCount number(10,0) NOT NULL ,
+ customerID     number(10,0) NOT NULL ,
+PRIMARY KEY (inventoryID)
+);
+
+
+
+
+
+
+-- ************************************** `Platform`
+
+CREATE TABLE Platform
+(
+ platID      number(10,0) NOT NULL ,
+ platName    varchar2(255) NOT NULL ,
+ platRating  number(10,0) NOT NULL ,
+ platDesc    linestring NOT NULL ,
+ platPrice   number(10,0) NOT NULL ,
+ inventoryID number(10,0) NOT NULL ,
+PRIMARY KEY (platID)
+CREATE INDEX FK1 ON Platform (inventoryID),
+CONSTRAINT FK_165 FOREIGN KEY `FK1` (inventoryID) REFERENCES `Game` (inventoryID)
+);
+
+
+
+
+
+
+-- ************************************** `gameMode`
+
+CREATE TABLE gameMode
+(
+ modeType    linestring NOT NULL ,
+ inventoryID number(10,0) NOT NULL ,
+PRIMARY KEY (modeType)
+CREATE INDEX fkIdx_83 ON gameMode (inventoryID),
+CONSTRAINT FK_83 FOREIGN KEY `fkIdx_83` (inventoryID) REFERENCES `Game` (inventoryID)
+);
+
+
+
+
+
+
+-- ************************************** `Developer`
+
+CREATE TABLE Developer
+(
+ developer   varchar2(45) NOT NULL ,
+ devFirst    varchar2(45) NOT NULL ,
+ devLast     varchar2(255) NOT NULL ,
+ devCompany  linestring NOT NULL ,
+ devDesc     linestring NOT NULL ,
+ inventoryID number(10,0) NOT NULL ,
+PRIMARY KEY (developer)
+CREATE INDEX fkIdx_155 ON Developer (inventoryID),
+CONSTRAINT FK_155 FOREIGN KEY `fkIdx_155` (inventoryID) REFERENCES `Game` (inventoryID)
+);
+
+
+
+
+
+
+-- ************************************** `Available`
+
+CREATE TABLE Available
+(
+ availGame   varchar2(45) NOT NULL ,
+ inventoryID number(10,0) NOT NULL ,
+PRIMARY KEY (availGame)
+CREATE INDEX fkIdx_180 ON Available (inventoryID),
+CONSTRAINT FK_180 FOREIGN KEY `fkIdx_180` (inventoryID) REFERENCES `Game` (inventoryID)
+);
+
+
+
+
+
+
+-- ************************************** `Publishers`
+
+CREATE TABLE Publishers
+(
+ pubFirst    varchar2(45) NOT NULL ,
+ pubLast     varchar2(45) NOT NULL ,
+ pubDesc     linestring NOT NULL ,
+ inventoryID number(10,0) NOT NULL ,
+ developer   varchar2(45) NOT NULL ,
+PRIMARY KEY (pubFirst)
+CREATE INDEX fkIdx_158 ON Publishers (inventoryID),
+CONSTRAINT FK_158 FOREIGN KEY `fkIdx_158` (inventoryID) REFERENCES `Game` (inventoryID),
+KEY `fkIdx_161` (developer),
+CONSTRAINT FK_161 FOREIGN KEY `fkIdx_161` (developer) REFERENCES `Developer` (developer)
+);
+
+
+
+
+
+
+-- ************************************** `InvCount`
+
+CREATE TABLE InvCount
+(
+ invCount  varchar2(45) NOT NULL ,
+ availGame varchar2(45) NOT NULL ,
+PRIMARY KEY (invCount)
+CREATE INDEX fkIdx_183 ON InvCount (availGame),
+CONSTRAINT FK_183 FOREIGN KEY `fkIdx_183` (availGame) REFERENCES `Available` (availGame)
+);
+
+
+
+
+
+
+-- ************************************** `Genre`
+
+CREATE TABLE Genre
+(
+ genreType linestring NOT NULL ,
+ platID    number(10,0) NOT NULL ,
+PRIMARY KEY (genreType)
+CREATE INDEX fkIdx_168 ON Genre (platID),
+CONSTRAINT FK_168 FOREIGN KEY `fkIdx_168` (platID) REFERENCES `Platform` (platID)
+);
+
+
+
+
+
+
+-- ************************************** `Themes`
+
+CREATE TABLE Themes
+(
+ themeType linestring NOT NULL ,
+ genreType linestring NOT NULL ,
+PRIMARY KEY (themeType)
+CREATE INDEX fkIdx_171 ON Themes (genreType),
+CONSTRAINT FK_171 FOREIGN KEY `fkIdx_171` (genreType) REFERENCES `Genre` (genreType)
+);
+
+
+
+
+
+
+-- ************************************** `Description`
+
+CREATE TABLE Description
+(
+ descript      linestring NOT NULL ,
+ descPublisher linestring NOT NULL ,
+ descDeveloper linestring NOT NULL ,
+ descGame      linestring NOT NULL ,
+ inventoryID   number(10,0) NOT NULL ,
+ developer     varchar2(45) NOT NULL ,
+ pubFirst      varchar2(45) NOT NULL ,
+PRIMARY KEY (descript)
+CREATE INDEX fkIdx_189 ON Description (developer),
+CONSTRAINT FK_189 FOREIGN KEY `fkIdx_189` (developer) REFERENCES `Developer` (developer),
+KEY `fkIdx_192` (pubFirst),
+CONSTRAINT FK_192 FOREIGN KEY `fkIdx_192` (pubFirst) REFERENCES `Publishers` (pubFirst),
+KEY `fkIdx_195` (inventoryID),
+CONSTRAINT FK_195 FOREIGN KEY `fkIdx_195` (inventoryID) REFERENCES `Game` (inventoryID)
+);
+
+
+
+
+
+
+-- ************************************** `Customer`
+
+CREATE TABLE Customer
+(
+ CustomerID     NOT NULL ,
+ customerFName linestring NOT NULL ,
+ customerLName linestring NOT NULL ,
+ customerCC    linestring NOT NULL ,
+ customerAge   varchar2(45) NOT NULL ,
+ customerEmail linestring NOT NULL ,
+ customerPhone varchar2(20) NOT NULL ,
+ invCount      varchar2(45) NOT NULL ,
+PRIMARY KEY (CustomerID)
+CREATE INDEX fkIdx_186 ON Customer (invCount),
+CONSTRAINT FK_186 FOREIGN KEY `fkIdx_186` (invCount) REFERENCES `InvCount` (invCount)
+);
+
+
+
+
+
+
+-- ************************************** `Perspective`
+
+CREATE TABLE Perspective
+(
+ perspectiveType linestring NOT NULL ,
+ themeType       linestring NOT NULL ,
+PRIMARY KEY (perspectiveType)
+CREATE INDEX fkIdx_174 ON Perspective (themeType),
+CONSTRAINT FK_174 FOREIGN KEY `fkIdx_174` (themeType) REFERENCES `Themes` (themeType)
+);
+
+
+
+
+
+
+-- ************************************** `Rating`
+
+CREATE TABLE Rating
+(
+ rate            varchar2(45) NOT NULL ,
+ perspectiveType linestring NOT NULL ,
+PRIMARY KEY (rate)
+CREATE INDEX fkIdx_177 ON Rating (perspectiveType),
+CONSTRAINT FK_177 FOREIGN KEY `fkIdx_177` (perspectiveType) REFERENCES `Perspective` (perspectiveType)
+);
+
+
+
+
+
+
