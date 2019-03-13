@@ -164,3 +164,31 @@ ADD CONSTRAINT FK26
     ADD CONSTRAINT FK28
      FOREIGN KEY (genreType)
      REFERENCES Genre (genreType)
+
+-- ************************************** `Description`
+CREATE TABLE Description
+(
+ descript      linestring NOT NULL ,
+ descPublisher linestring NOT NULL ,
+ descDeveloper linestring NOT NULL ,
+ descGame      linestring NOT NULL ,
+ inventoryID   number(10,0) NOT NULL ,
+ developer     varchar2(45) NOT NULL ,
+ pubFirst      varchar2(45) NOT NULL ,
+PRIMARY KEY (descript)
+);
+
+CREATE INDEX FK9 ON Description (developer),
+
+ALTER TABLE Description
+ADD CONSTRAINT FK29
+  FOREIGN KEY (developer)
+  REFERENCES Developer (developer)
+ADD CONSTRAINT FK30
+  FOREIGN KEY (pubFirst)
+  REFERENCES Publishers (pubFirst)
+ADD CONSTRAINT FK31
+  FOREIGN KEY (inventoryID)
+  REFERENCES Game (inventoryID)
+
+  -- ************************************** `Customer`
