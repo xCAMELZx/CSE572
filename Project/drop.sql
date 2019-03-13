@@ -1,3 +1,9 @@
+DROP TABLE Rating;
+
+DROP TABLE Perspective;
+
+DROP TABLE Customer;
+
 DROP TABLE Description;
 
 DROP TABLE Themes;
@@ -12,7 +18,7 @@ DROP TABLE Available;
 
 DROP TABLE Developer;
 
-DROP TABLE PLATFORM;
+DROP TABLE Platform;
 
 DROP TABLE gameMode;
 

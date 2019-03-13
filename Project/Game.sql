@@ -48,7 +48,7 @@ CREATE TABLE gameMode
    PRIMARY KEY (modeType)
   );
 
-CREATE INDEX FK2 ON gameMode (inventoryID),
+CREATE INDEX FK2 ON gameMode (inventoryID);
 
 ALTER TABLE gameMode
 ADD CONSTRAINT FK21
@@ -69,7 +69,7 @@ CREATE TABLE Developer
 PRIMARY KEY (developer)
 );
 
-CREATE INDEX FK3 ON Developer (inventoryID),
+CREATE INDEX FK3 ON Developer (inventoryID);
 
 ALTER TABLE Developer
 ADD CONSTRAINT FK22
@@ -85,7 +85,7 @@ CREATE TABLE Available
 PRIMARY KEY (availGame)
 );
 
-CREATE INDEX FK4 ON Available (inventoryID),
+CREATE INDEX FK4 ON Available (inventoryID);
 
 ALTER TABLE Available
 ADD CONSTRAINT FK23
@@ -104,17 +104,17 @@ ADD CONSTRAINT FK23
 PRIMARY KEY (pubFirst)
 );
 
-CREATE INDEX FK5 ON Publishers (inventoryID),
+CREATE INDEX FK5 ON Publishers (inventoryID);
 
 ALTER TABLE Publishers
 ADD CONSTRAINT FK24
   FOREIGN KEY (inventoryID)
-  REFERENCES Game (inventoryID)
+  REFERENCES Game (inventoryID);
 
 ALTER TABLE Publishers
 ADD CONSTRAINT FK25
   FOREIGN KEY (developer)
-  REFERENCES Developer (developer)
+  REFERENCES Developer (developer);
 
   -- ************************************** `InvCount`
 
@@ -124,8 +124,6 @@ ADD CONSTRAINT FK25
  availGame varchar2(45) NOT NULL ,
 PRIMARY KEY (count)
 );
-
-CREATE INDEX FK6 ON InvCount (count),
 
 ALTER TABLE InvCount
 ADD CONSTRAINT FK26
@@ -137,38 +135,38 @@ ADD CONSTRAINT FK26
 
   CREATE TABLE Genre
   (
-   genreType linestring NOT NULL ,
+   genreType varchar2(255) NOT NULL ,
    platID    number(10,0) NOT NULL ,
   PRIMARY KEY (genreType)
   );
 
-  CREATE INDEX FK7 ON Genre (platID),
+  CREATE INDEX FK7 ON Genre (platID);
 
-  ALTER TABLE Genre
-  ADD CONSTRAINT FK27
-    FOREIGN KEY (platID)
-    REFERENCES Platform (platID)
+ALTER TABLE Genre
+ADD CONSTRAINT FK27
+  FOREIGN KEY (platID)
+  REFERENCES Platform (platID);
 
     -- ************************************** `Themes`
 
     CREATE TABLE Themes
     (
-     themeType linestring NOT NULL ,
-     genreType linestring NOT NULL ,
+     themeType varchar2(255) NOT NULL ,
+     genreType varchar2(255) NOT NULL ,
     PRIMARY KEY (themeType)
     );
 
-    CREATE INDEX FK8 ON Themes (genreType),
+CREATE INDEX FK8 ON Themes (genreType);
 
-    ALTER TABLE Themes
-    ADD CONSTRAINT FK28
-     FOREIGN KEY (genreType)
-     REFERENCES Genre (genreType)
+ALTER TABLE Themes
+ADD CONSTRAINT FK28
+ FOREIGN KEY (genreType)
+ REFERENCES Genre (genreType);
 
 -- ************************************** `Description`
 CREATE TABLE Description
 (
- descript      linestring NOT NULL ,
+ descript      varchar2(255) NOT NULL ,
  descPublisher linestring NOT NULL ,
  descDeveloper linestring NOT NULL ,
  descGame      linestring NOT NULL ,
@@ -178,17 +176,73 @@ CREATE TABLE Description
 PRIMARY KEY (descript)
 );
 
-CREATE INDEX FK9 ON Description (developer),
+CREATE INDEX FK9 ON Description (developer);
 
 ALTER TABLE Description
 ADD CONSTRAINT FK29
   FOREIGN KEY (developer)
-  REFERENCES Developer (developer)
+  REFERENCES Developer (developer);
+
+ALTER TABLE Description
 ADD CONSTRAINT FK30
   FOREIGN KEY (pubFirst)
-  REFERENCES Publishers (pubFirst)
+  REFERENCES Publishers (pubFirst);
+
+ALTER TABLE Description
 ADD CONSTRAINT FK31
   FOREIGN KEY (inventoryID)
-  REFERENCES Game (inventoryID)
+  REFERENCES Game (inventoryID);
 
-  -- ************************************** `Customer`
+-- ************************************** `Customer`
+
+CREATE TABLE Customer
+(
+ CustomerID    varchar2(10) NOT NULL ,
+ customerFName linestring NOT NULL ,
+ customerLName linestring NOT NULL ,
+ customerCC    linestring NOT NULL ,
+ customerAge   varchar2(45) NOT NULL ,
+ customerEmail linestring NOT NULL ,
+ customerPhone varchar2(20) NOT NULL ,
+ invCount      varchar2(45) NOT NULL ,
+PRIMARY KEY (CustomerID)
+);
+
+CREATE INDEX FK10 ON Customer (invCount);
+
+ALTER TABLE Customer
+ADD CONSTRAINT FK32
+ FOREIGN KEY (invCount)
+ REFERENCES InvCount (count);
+
+ -- ************************************** `Perspective`
+
+ CREATE TABLE Perspective
+ (
+  perspectiveType varchar2(45) NOT NULL ,
+  themeType varchar2(255) NOT NULL ,
+ PRIMARY KEY (perspectiveType)
+);
+
+CREATE INDEX FK11 ON Perspective (themeType);
+
+ALTER TABLE Perspective
+ADD CONSTRAINT FK33
+ FOREIGN  KEY (themeType)
+ REFERENCES Themes (themeType);
+
+ -- ************************************** `Rating`
+
+ CREATE TABLE Rating
+ (
+  rate  varchar2(45) NOT NULL ,
+  perspectiveType varchar(255) NOT NULL ,
+ PRIMARY KEY (rate)
+ );
+
+ CREATE INDEX FK12 ON Rating (perspectiveType);
+
+ ALTER TABLE Rating
+ ADD CONSTRAINT FK34
+  FOREIGN KEY (perspectiveType)
+  REFERENCES Perspective (perspectiveType);
