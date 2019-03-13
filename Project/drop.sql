@@ -1,0 +1,17 @@
+DROP TABLE Themes;
+
+DROP TABLE Genre; 
+
+DROP TABLE InvCount;
+
+DROP TABLE Publishers;
+
+DROP TABLE Available;
+
+DROP TABLE Developer;
+
+DROP TABLE PLATFORM;
+
+DROP TABLE gameMode;
+
+DROP TABLE GAME; 
