@@ -150,3 +150,17 @@ ADD CONSTRAINT FK26
     REFERENCES Platform (platID)
 
     -- ************************************** `Themes`
+
+    CREATE TABLE Themes
+    (
+     themeType linestring NOT NULL ,
+     genreType linestring NOT NULL ,
+    PRIMARY KEY (themeType)
+    );
+
+    CREATE INDEX FK8 ON Themes (genreType),
+
+    ALTER TABLE Themes
+    ADD CONSTRAINT FK28
+     FOREIGN KEY (genreType)
+     REFERENCES Genre (genreType)

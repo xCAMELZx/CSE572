@@ -1,6 +1,8 @@
+DROP TABLE Description;
+
 DROP TABLE Themes;
 
-DROP TABLE Genre; 
+DROP TABLE Genre;
 
 DROP TABLE InvCount;
 
@@ -14,4 +16,4 @@ DROP TABLE PLATFORM;
 
 DROP TABLE gameMode;
 
-DROP TABLE GAME; 
+DROP TABLE GAME;
