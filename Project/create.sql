@@ -4,17 +4,18 @@ CREATE TABLE Game
 (
  InventoryID     number(10,0) NOT NULL ,
  gameMode        varchar2(45) NOT NULL ,
- Developers      varchar2(255) NOT NULL ,
+ Developers      varchar2(45) NOT NULL ,
  Rating          number(10,0) NOT NULL ,
- Platform        varchar2(255) NOT NULL ,
- Genre           varchar2(255) NOT NULL ,
- Publishers      varchar2(255) NOT NULL ,
- Themes          varchar2(255) NOT NULL ,
+ Platform        varchar2(45) NOT NULL ,
+ Genre           varchar2(45) NOT NULL ,
+ Publishers      varchar2(45) NOT NULL ,
+ Themes          varchar2(45) NOT NULL ,
  Perspective     varchar2(45) NOT NULL ,
- Description     linestring NOT NULL ,
+ Description     varchar2(100) NOT NULL ,
  Availablity     varchar2(1) NOT NULL ,
  InventoryCount number(10,0) NOT NULL ,
  CustomerID     number(10,0) NOT NULL ,
+ title 		varchar2(45) NOT NULL,
 PRIMARY KEY (inventoryID)
 );
 
@@ -22,9 +23,9 @@ PRIMARY KEY (inventoryID)
 CREATE TABLE Platform
 (
  platID     number(10,0) NOT NULL ,
- platname    varchar2(255) NOT NULL ,
+ platname    varchar2(25) NOT NULL ,
  platrating  number(10,0) NOT NULL ,
- platdesc    linestring NOT NULL ,
+ platdesc     varchar2(25) NOT NULL,
  platprice   number(10,0) NOT NULL ,
  InventoryID number(10,0) NOT NULL ,
 PRIMARY KEY (platID)
@@ -60,12 +61,12 @@ ADD CONSTRAINT FK21
 
 CREATE TABLE Developer
 (
- developer   varchar2(45) NOT NULL ,
- devFirst    varchar2(45) NOT NULL ,
- devLast     varchar2(255) NOT NULL ,
- devCompany  linestring NOT NULL ,
- devDesc     linestring NOT NULL ,
- inventoryID number(10,0) NOT NULL ,
+ developer    varchar2(45) NOT NULL ,
+ devFirst     varchar2(10) NOT NULL ,
+ devLast      varchar2(10) NOT NULL ,
+ devCompany   varchar2(16) NOT NULL ,
+ devDesc      varchar2(30) NOT NULL ,
+ inventoryID  number(10) NOT NULL ,
 PRIMARY KEY (developer)
 );
 
@@ -80,8 +81,8 @@ ADD CONSTRAINT FK22
 -- ************************************** `Available`
 CREATE TABLE Available
 (
- availGame   varchar2(45) NOT NULL ,
- inventoryID number(10,0) NOT NULL ,
+ availGame   varchar2(1) NOT NULL ,
+ inventoryID number(10) NOT NULL ,
 PRIMARY KEY (availGame)
 );
 
@@ -96,10 +97,10 @@ ADD CONSTRAINT FK23
 
   CREATE TABLE Publishers
 (
- pubFirst    varchar2(45) NOT NULL ,
- pubLast     varchar2(45) NOT NULL ,
- pubDesc     linestring NOT NULL ,
- inventoryID number(10,0) NOT NULL ,
+ pubFirst    varchar2(17) NOT NULL ,
+ pubLast     varchar2(17) NOT NULL ,
+ pubDesc      varchar2(30) NOT NULL ,
+ inventoryID number(10) NOT NULL ,
  developer   varchar2(45) NOT NULL ,
 PRIMARY KEY (pubFirst)
 );
@@ -120,8 +121,8 @@ ADD CONSTRAINT FK25
 
   CREATE TABLE InvCount
 (
- count  varchar2(45) NOT NULL ,
- availGame varchar2(45) NOT NULL ,
+ count  varchar2(10) NOT NULL ,
+ availGame varchar2(1) NOT NULL ,
 PRIMARY KEY (count)
 );
 
@@ -135,8 +136,8 @@ ADD CONSTRAINT FK26
 
   CREATE TABLE Genre
   (
-   genreType varchar2(255) NOT NULL ,
-   platID    number(10,0) NOT NULL ,
+   genreType varchar2(11) NOT NULL ,
+   platID    number(10) NOT NULL ,
   PRIMARY KEY (genreType)
   );
 
@@ -151,8 +152,8 @@ ADD CONSTRAINT FK27
 
     CREATE TABLE Themes
     (
-     themeType varchar2(255) NOT NULL ,
-     genreType varchar2(255) NOT NULL ,
+     themeType varchar2(16) NOT NULL ,
+     genreType varchar2(16) NOT NULL ,
     PRIMARY KEY (themeType)
     );
 
@@ -166,13 +167,13 @@ ADD CONSTRAINT FK28
 -- ************************************** `Description`
 CREATE TABLE Description
 (
- descript      varchar2(255) NOT NULL ,
- descPublisher linestring NOT NULL ,
- descDeveloper linestring NOT NULL ,
- descGame      linestring NOT NULL ,
- inventoryID   number(10,0) NOT NULL ,
- developer     varchar2(45) NOT NULL ,
- pubFirst      varchar2(45) NOT NULL ,
+ descript      varchar2(30) NOT NULL ,
+ descPublisher  varchar2(30) NOT NULL ,
+ descDeveloper  varchar2(30) NOT NULL ,
+ descGame       varchar2(37) NOT NULL ,
+ inventoryID   number(10) NOT NULL ,
+ developer     varchar2(20) NOT NULL ,
+ pubFirst      varchar2(10) NOT NULL ,
 PRIMARY KEY (descript)
 );
 
@@ -197,14 +198,14 @@ ADD CONSTRAINT FK31
 
 CREATE TABLE Customer
 (
- CustomerID    varchar2(10) NOT NULL ,
- customerFName linestring NOT NULL ,
- customerLName linestring NOT NULL ,
- customerCC    linestring NOT NULL ,
- customerAge   varchar2(45) NOT NULL ,
- customerEmail linestring NOT NULL ,
- customerPhone varchar2(20) NOT NULL ,
- invCount      varchar2(45) NOT NULL ,
+ CustomerID    varchar2(5) NOT NULL ,
+ customerFName  varchar2(10) NOT NULL ,
+ customerLName  varchar2(10) NOT NULL ,
+ customerCC     varchar2(21) NOT NULL ,
+ customerDOB   varchar2(13) NOT NULL ,
+ customerEmail  varchar2(22) NOT NULL ,
+ customerPhone varchar2(13) NOT NULL ,
+ invCount      varchar2(8) NOT NULL ,
 PRIMARY KEY (CustomerID)
 );
 
@@ -219,8 +220,8 @@ ADD CONSTRAINT FK32
 
  CREATE TABLE Perspective
  (
-  perspectiveType varchar2(45) NOT NULL ,
-  themeType varchar2(255) NOT NULL ,
+  perspectiveType varchar2(16) NOT NULL ,
+  themeType varchar2(16) NOT NULL ,
  PRIMARY KEY (perspectiveType)
 );
 
@@ -236,7 +237,7 @@ ADD CONSTRAINT FK33
  CREATE TABLE Rating
  (
   rate  varchar2(45) NOT NULL ,
-  perspectiveType varchar(255) NOT NULL ,
+  perspectiveType varchar(16) NOT NULL ,
  PRIMARY KEY (rate)
  );
 

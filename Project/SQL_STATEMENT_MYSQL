@@ -87,7 +87,7 @@ CONSTRAINT FK_155 FOREIGN KEY `fkIdx_155` (inventoryID) REFERENCES `Game` (inven
 
 CREATE TABLE Available
 (
- availGame   varchar2(45) NOT NULL ,
+ availGame   varchar2(1) NOT NULL ,
  inventoryID number(10,0) NOT NULL ,
 PRIMARY KEY (availGame)
 CREATE INDEX fkIdx_180 ON Available (inventoryID),
