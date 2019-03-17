@@ -15,7 +15,7 @@ CREATE TABLE Game
  Availablity     varchar2(1) NOT NULL ,
  InventoryCount number(10,0) NOT NULL ,
  CustomerID     number(10,0) NOT NULL ,
- title 		varchar2(45) NOT NULL,
+ title 		      varchar2(45) NOT NULL,
 PRIMARY KEY (inventoryID)
 );
 
