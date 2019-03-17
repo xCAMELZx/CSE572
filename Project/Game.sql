@@ -3,19 +3,19 @@
 CREATE TABLE Game
 (
  InventoryID     number(10,0) NOT NULL ,
- gameMode        varchar2(20) NOT NULL ,
- Developers      varchar2(20) NOT NULL ,
+ gameMode        varchar2(45) NOT NULL ,
+ Developers      varchar2(45) NOT NULL ,
  Rating          number(10,0) NOT NULL ,
- Platform        varchar2(20) NOT NULL ,
- Genre           varchar2(20) NOT NULL ,
- Publishers      varchar2(20) NOT NULL ,
- Themes          varchar2(20) NOT NULL ,
- Perspective     varchar2(20) NOT NULL ,
- Description     varchar2(35) NOT NULL ,
+ Platform        varchar2(45) NOT NULL ,
+ Genre           varchar2(45) NOT NULL ,
+ Publishers      varchar2(45) NOT NULL ,
+ Themes          varchar2(45) NOT NULL ,
+ Perspective     varchar2(45) NOT NULL ,
+ Description     varchar2(100) NOT NULL ,
  Availablity     varchar2(1) NOT NULL ,
  InventoryCount number(10,0) NOT NULL ,
  CustomerID     number(10,0) NOT NULL ,
- title 		varchar2(20) NOT NULL,
+ title 		varchar2(45) NOT NULL,
 PRIMARY KEY (inventoryID)
 );
 
@@ -97,10 +97,10 @@ ADD CONSTRAINT FK23
 
   CREATE TABLE Publishers
 (
- pubFirst    varchar2(17) NOT NULL ,
- pubLast     varchar2(17) NOT NULL ,
- pubDesc      varchar2(30) NOT NULL ,
- inventoryID number(10) NOT NULL ,
+ pubFirst    varchar2(45) NOT NULL ,
+ pubLast     varchar2(45) NOT NULL ,
+ pubDesc      varchar2(255) NOT NULL ,
+ inventoryID number(10,0) NOT NULL ,
  developer   varchar2(45) NOT NULL ,
 PRIMARY KEY (pubFirst)
 );
@@ -121,7 +121,7 @@ ADD CONSTRAINT FK25
 
   CREATE TABLE InvCount
 (
- count  varchar2(10) NOT NULL ,
+ count  varchar2(45) NOT NULL ,
  availGame varchar2(1) NOT NULL ,
 PRIMARY KEY (count)
 );
@@ -136,8 +136,8 @@ ADD CONSTRAINT FK26
 
   CREATE TABLE Genre
   (
-   genreType varchar2(11) NOT NULL ,
-   platID    number(10) NOT NULL ,
+   genreType varchar2(255) NOT NULL ,
+   platID    number(10,0) NOT NULL ,
   PRIMARY KEY (genreType)
   );
 
@@ -152,8 +152,8 @@ ADD CONSTRAINT FK27
 
     CREATE TABLE Themes
     (
-     themeType varchar2(16) NOT NULL ,
-     genreType varchar2(16) NOT NULL ,
+     themeType varchar2(255) NOT NULL ,
+     genreType varchar2(255) NOT NULL ,
     PRIMARY KEY (themeType)
     );
 
@@ -167,13 +167,13 @@ ADD CONSTRAINT FK28
 -- ************************************** `Description`
 CREATE TABLE Description
 (
- descript      varchar2(30) NOT NULL ,
- descPublisher  varchar2(30) NOT NULL ,
- descDeveloper  varchar2(30) NOT NULL ,
- descGame       varchar2(37) NOT NULL ,
- inventoryID   number(10) NOT NULL ,
- developer     varchar2(20) NOT NULL ,
- pubFirst      varchar2(10) NOT NULL ,
+ descript      varchar2(255) NOT NULL ,
+ descPublisher  varchar2(255) NOT NULL ,
+ descDeveloper  varchar2(255) NOT NULL ,
+ descGame       varchar2(255) NOT NULL ,
+ inventoryID   number(10,0) NOT NULL ,
+ developer     varchar2(45) NOT NULL ,
+ pubFirst      varchar2(45) NOT NULL ,
 PRIMARY KEY (descript)
 );
 
@@ -198,14 +198,14 @@ ADD CONSTRAINT FK31
 
 CREATE TABLE Customer
 (
- CustomerID    varchar2(5) NOT NULL ,
- customerFName  varchar2(10) NOT NULL ,
- customerLName  varchar2(10) NOT NULL ,
- customerCC     varchar2(21) NOT NULL ,
- customerDOB   varchar2(13) NOT NULL ,
- customerEmail  varchar2(22) NOT NULL ,
- customerPhone varchar2(13) NOT NULL ,
- invCount      varchar2(8) NOT NULL ,
+ CustomerID    varchar2(10) NOT NULL ,
+ customerFName  varchar2(255) NOT NULL ,
+ customerLName  varchar2(255) NOT NULL ,
+ customerCC     varchar2(255) NOT NULL ,
+ customerAge   varchar2(45) NOT NULL ,
+ customerEmail  varchar2(255) NOT NULL ,
+ customerPhone varchar2(20) NOT NULL ,
+ invCount      varchar2(45) NOT NULL ,
 PRIMARY KEY (CustomerID)
 );
 
@@ -220,8 +220,8 @@ ADD CONSTRAINT FK32
 
  CREATE TABLE Perspective
  (
-  perspectiveType varchar2(16) NOT NULL ,
-  themeType varchar2(16) NOT NULL ,
+  perspectiveType varchar2(45) NOT NULL ,
+  themeType varchar2(255) NOT NULL ,
  PRIMARY KEY (perspectiveType)
 );
 
@@ -237,7 +237,7 @@ ADD CONSTRAINT FK33
  CREATE TABLE Rating
  (
   rate  varchar2(45) NOT NULL ,
-  perspectiveType varchar(16) NOT NULL ,
+  perspectiveType varchar(255) NOT NULL ,
  PRIMARY KEY (rate)
  );
 
