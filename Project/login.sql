@@ -14,4 +14,5 @@ set linesize 132
 set pagesize 30
 set pause on
 set pause "PRESS RETURN TO CONTINUE"
+set serveroutput on
 DEFINE_EDITOR=vi

@@ -1,4 +1,5 @@
 
+-- ***************** This has been created by Yousef
 -- ************************************** `Game`
 CREATE TABLE Game
 (
@@ -11,7 +12,7 @@ CREATE TABLE Game
  Publishers      varchar2(20) NOT NULL ,
  Themes          varchar2(20) NOT NULL ,
  Perspective     varchar2(20) NOT NULL ,
- Description     varchar2(35) NOT NULL ,
+ Description     varchar2(255) NOT NULL ,
  Availablity     varchar2(1) NOT NULL ,
  InventoryCount number(10,0) NOT NULL ,
  CustomerID     number(10,0) NOT NULL ,
@@ -167,10 +168,10 @@ ADD CONSTRAINT FK28
 -- ************************************** `Description`
 CREATE TABLE Description
 (
- descript      varchar2(30) NOT NULL ,
+ descript      varchar2(255) NOT NULL ,
  descPublisher  varchar2(30) NOT NULL ,
  descDeveloper  varchar2(30) NOT NULL ,
- descGame       varchar2(37) NOT NULL ,
+ descGame       varchar2(255) NOT NULL ,
  inventoryID   number(10) NOT NULL ,
  developer     varchar2(20) NOT NULL ,
  pubFirst      varchar2(10) NOT NULL ,

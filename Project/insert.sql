@@ -2,12 +2,28 @@ INSERT INTO Game
 (InventoryID, gameMode, Developers, Rating, Platform, Genre, Publishers, Themes,
 Perspective, Description, Availablity, InventoryCount, CustomerID, Title)
 VALUES
-(1, 'SP', 'Santa Monica STD', 96, 'PS4', 'Adventure', 'Sony ENT', 'Mythology', '3rd Person', 'Play as Kratos in the new 2018 Game', 'T', 10, 0001, 'God of War');
+(1, 'SP', 'Santa Monica STD', 96, 'PS4', 'Adventure', 'Sony ENT', 'Mythology', '3rd Person', 'Play as Kratos in the new 2018 Game', 'T', 1, 0001, 'God of War');
+
+INSERT INTO Game
+(InventoryID, gameMode, Developers, Rating, Platform, Genre, Publishers, Themes,
+Perspective, Description, Availablity, InventoryCount, CustomerID, Title)
+VALUES
+(2, 'SP', 'Capcom', 92, 'XB1', 'Hack/Slash', 'Capcom', 'Fantasy', '3rd Person', 'Play as three demon hunters to save humanity from a demonic invasion', 'T', 1, 0002, 'Devil May Cry 5');
 
 INSERT INTO PLATFORM
 (PLATID, PLATNAME, PLATRATING, PLATDESC, PLATPRICE, INVENTORYID)
 VALUES
-( 1, 'PS4', 96, 'DEVELOPED BY SONY', 269, 1);
+(1, 'PS4', 96, 'DEVELOPED BY SONY', 269, 1);
+
+INSERT INTO PLATFORM
+(PLATID, PLATNAME, PLATRATING, PLATDESC, PLATPRICE, INVENTORYID)
+VALUES
+(2, 'PC', 100, 'PC Master Race', 1000, 1);
+
+INSERT INTO PLATFORM
+(PLATID, PLATNAME, PLATRATING, PLATDESC, PLATPRICE, INVENTORYID)
+VALUES
+(3, 'XB1', 90, 'DEVELOPED BY MICROSOFT', 499, 1);
 
 INSERT INTO gameMode
 (modeType, inventoryID)
@@ -19,43 +35,79 @@ INSERT INTO Developer
 VALUES
 ('READY AT DAWN', 'SCOTT', 'ROGERS', 'SANTA MONICA STD', 'VIDEO GAME DESIGNER', 1);
 
+INSERT INTO Developer
+(DEVELOPER, DEVFIRST, DEVLAST, DEVCOMPANY, DEVDESC, INVENTORYID)
+VALUES
+('Campcomi LTD', 'Hideaki', 'Itsuno', 'Capcom', 'Director', 2);
+
 INSERT INTO AVAILABLE
 (AVAILGAME, INVENTORYID)
 VALUES
-('T',1);
+('T', 1);
 
 INSERT INTO PUBLISHERS
 (PUBFIRST, PUBLAST, PUBDESC, INVENTORYID, DEVELOPER)
 VALUES
 ('Hirai', 'Kaz', 'CEO OF SONY ENT', 1, 'READY AT DAWN');
 
+INSERT INTO PUBLISHERS
+(PUBFIRST, PUBLAST, PUBDESC, INVENTORYID, DEVELOPER)
+VALUES
+('Kenzo', 'Tsujimoto', 'CEO OF CAPCOM LTD', 2, 'Capcom');
+
 INSERT INTO INVCOUNT
 (COUNT, AVAILGAME)
 VALUES
-(10, 'T');
+(1, 'T');
 
 INSERT INTO GENRE
 (GENRETYPE, PLATID)
 VALUES
 ('Adventure', 1 );
 
+INSERT INTO GENRE
+(GENRETYPE, PLATID)
+VALUES
+('Hack/Slash', 3);
+
 INSERT INTO THEMES
 (THEMETYPE, GENRETYPE)
 VALUES
 ('Mythology', 'Adventure');
 
+
+INSERT INTO THEMES
+(THEMETYPE, GENRETYPE)
+VALUES
+('Action', 'Hack/Slash');
+
 INSERT INTO DESCRIPTION
 (DESCRIPT, DESCPUBLISHER, DESCDEVELOPER, DESCGAME, INVENTORYID, DEVELOPER, PUBFIRST)
 VALUES
-('Table of Information', 'CEO OF SONY ENT', 'VIDEO GAME DESIGNER', 'Play as Kratos
-  in the new 2018 Game', 1, 'READY AT DAWN', 'Hirai' );
+('Table of Information', 'CEO OF SONY ENT', 'VIDEO GAME DESIGNER', 'Play as Kratos in the new 2018 Game', 1, 'READY AT DAWN', 'Hirai' );
+
+INSERT INTO DESCRIPTION
+(DESCRIPT, DESCPUBLISHER, DESCDEVELOPER, DESCGAME, INVENTORYID, DEVELOPER, PUBFIRST)
+VALUES
+('Info', 'CEP OF CAPCOM', 'Game Director', 'Play as three demon hunters to save humanity from a demonic invasion', 1, 'Capcom','Kenzo');
 
 INSERT INTO Customer
 (CUSTOMERID, CUSTOMERFNAME, CUSTOMERLNAME, CUSTOMERCC, CUSTOMERDOB, CUSTOMEREMAIL,
 CUSTOMERPHONE, INVCOUNT)
 VALUES
-(0001, 'Yousef', 'Jarrar', '4342-5620-8563-5541', '27', '005845836@csusb.edu', '909-537-7266',
-  10 );
+(0001, 'Yousef', 'Jarrar', '4342-5620-8563-5541', '27', '005845836@csusb.edu', '909-537-7266', 1);
+
+INSERT INTO Customer
+(CUSTOMERID, CUSTOMERFNAME, CUSTOMERLNAME, CUSTOMERCC, CUSTOMERDOB, CUSTOMEREMAIL,
+CUSTOMERPHONE, INVCOUNT)
+VALUES
+(0002, 'Harry', 'Hacker', '1234-4567-8910-3942', '30', '002345678@csusb.edu', '909-321-4321', 1);
+
+INSERT INTO Customer
+(CUSTOMERID, CUSTOMERFNAME, CUSTOMERLNAME, CUSTOMERCC, CUSTOMERDOB, CUSTOMEREMAIL,
+CUSTOMERPHONE, INVCOUNT)
+VALUES
+(0003, 'Suarez', 'George', '9876-3214-5942-4521', '25', '006098556@csusb.edu', '909-352-1235', 1);
 
 INSERT INTO PERSPECTIVE
 (PERSPECTIVETYPE, THEMETYPE)
@@ -66,3 +118,8 @@ INSERT INTO RATING
 (RATE, PERSPECTIVETYPE)
 VALUES
 (96, '3rd Person');
+
+INSERT INTO RATING
+(RATE, PERSPECTIVETYPE)
+VALUES
+(92, '3rd Person');
