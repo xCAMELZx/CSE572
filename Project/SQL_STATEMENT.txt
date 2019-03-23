@@ -1,0 +1,127 @@
+-- ****************** SqlDBM: MySQL ******************;
+-- ***************************************************;
+
+
+-- ************************************** `Game`
+
+CREATE TABLE `Game`
+(
+ `InventoryID`    numeric NOT NULL ,
+ `TypeID`         numeric NOT NULL ,
+ `InventoryGenre` numeric NOT NULL ,
+ `Rating`         numeric NOT NULL ,
+ `Platform`       numeric NOT NULL ,
+ `Genre`          numeric NOT NULL ,
+PRIMARY KEY (`InventoryID`)
+);
+
+
+
+
+
+
+-- ************************************** `game.TypeID`
+
+CREATE TABLE `game.TypeID`
+(
+ `TypeID`      numeric NOT NULL ,
+ `Type`        varchar(45) NOT NULL ,
+ `InventoryID` numeric NOT NULL ,
+PRIMARY KEY (`TypeID`),
+KEY `fkIdx_50` (`InventoryID`),
+CONSTRAINT `FK_50` FOREIGN KEY `fkIdx_50` (`InventoryID`) REFERENCES `Game` (`InventoryID`)
+);
+
+
+
+
+
+
+-- ************************************** `game.Rating`
+
+CREATE TABLE `game.Rating`
+(
+ `RatingID`    numeric NOT NULL ,
+ `Rating`      varchar(45) NOT NULL ,
+ `InventoryID` numeric NOT NULL ,
+PRIMARY KEY (`RatingID`),
+KEY `fkIdx_56` (`InventoryID`),
+CONSTRAINT `FK_56` FOREIGN KEY `fkIdx_56` (`InventoryID`) REFERENCES `Game` (`InventoryID`)
+);
+
+
+
+
+
+
+-- ************************************** `game.Platform`
+
+CREATE TABLE `game.Platform`
+(
+ `ConsoleID`   numeric NOT NULL ,
+ `Name`        varchar(255) NOT NULL ,
+ `InventoryID` numeric NOT NULL ,
+PRIMARY KEY (`ConsoleID`),
+KEY `fkIdx_59` (`InventoryID`),
+CONSTRAINT `FK_59` FOREIGN KEY `fkIdx_59` (`InventoryID`) REFERENCES `Game` (`InventoryID`)
+);
+
+
+
+
+
+
+-- ************************************** `game.InventoryID`
+
+CREATE TABLE `game.InventoryID`
+(
+ `InventoryID` numeric NOT NULL ,
+ `Name`        varchar(45) NOT NULL ,
+ `Value`       numeric NOT NULL ,
+ `ConsoleID`   numeric NOT NULL ,
+ `RatingID`    numeric NOT NULL ,
+ `TypeID`      numeric NOT NULL ,
+ `Comments`    varchar(255) NOT NULL ,
+PRIMARY KEY (`InventoryID`),
+KEY `fkIdx_46` (`InventoryID`),
+CONSTRAINT `FK_46` FOREIGN KEY `fkIdx_46` (`InventoryID`) REFERENCES `Game` (`InventoryID`)
+);
+
+
+
+
+
+
+-- ************************************** `game.InventoryGenre`
+
+CREATE TABLE `game.InventoryGenre`
+(
+ `InventoryID` numeric NOT NULL ,
+ `Genre`       numeric NOT NULL ,
+ `GenreID`     numeric NOT NULL ,
+PRIMARY KEY (`InventoryID`),
+KEY `fkIdx_53` (`InventoryID`),
+CONSTRAINT `FK_53` FOREIGN KEY `fkIdx_53` (`InventoryID`) REFERENCES `Game` (`InventoryID`)
+);
+
+
+
+
+
+
+-- ************************************** `game.Genre`
+
+CREATE TABLE `game.Genre`
+(
+ `GenreID`     numeric NOT NULL ,
+ `Genre`       varchar(45) NOT NULL ,
+ `InventoryID` numeric NOT NULL ,
+PRIMARY KEY (`GenreID`),
+KEY `fkIdx_62` (`InventoryID`),
+CONSTRAINT `FK_62` FOREIGN KEY `fkIdx_62` (`InventoryID`) REFERENCES `game.InventoryGenre` (`InventoryID`)
+);
+
+
+
+
+

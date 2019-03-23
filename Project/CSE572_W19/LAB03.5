@@ -1,0 +1,18 @@
+SQL> SELECT CITY, STATE_PROVINCE, COUNTRY_NAME
+  2  FROM COUNTRIES
+  3  JOIN LOCATIONS USING (COUNTRY_ID)
+  4  JOIN REGIONS USING (REGION_ID)
+  5  WHERE REGION_ID = 3;
+PRESS RETURN TO CONTINUE
+CITY                           STATE_PROVINCE            COUNTRY_NAME                                                               
+------------------------------ ------------------------- ----------------------------------------                                   
+Tokyo                          Tokyo Prefecture          Japan                                                                      
+Hiroshima                                                Japan                                                                      
+Beijing                                                  China                                                                      
+Bombay                         Maharashtra               India                                                                      
+Sydney                         New South Wales           Australia                                                                  
+Singapore                                                Singapore                                                                  
+
+6 rows selected.
+
+SQL> SPOOL OFF
