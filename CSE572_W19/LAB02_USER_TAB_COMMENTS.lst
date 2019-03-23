@@ -1,8 +1,0 @@
-SQL> desc USER_TAB_COMMENTS
- Name                                                                     Null?    Type
- ------------------------------------------------------------------------ -------- -------------------------------------------------
- TABLE_NAME                                                               NOT NULL VARCHAR2(30)
- TABLE_TYPE                                                                        VARCHAR2(11)
- COMMENTS                                                                          VARCHAR2(4000)
-
-SQL> spool off
