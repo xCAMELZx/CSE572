@@ -1,0 +1,7 @@
+SQL> desc USER_CATALOG
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)
+ TABLE_TYPE                                                                        VARCHAR2(11)
+
+SQL> spool off

@@ -1,0 +1,8 @@
+SQL> desc USER_COL_COMMENTS
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                              NOT NULL VARCHAR2(30)
+ COMMENTS                                                                          VARCHAR2(4000)
+
+SQL> spool off

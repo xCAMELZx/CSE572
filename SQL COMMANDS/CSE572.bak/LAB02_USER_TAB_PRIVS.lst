@@ -1,0 +1,12 @@
+SQL> desc USER_TAB_PRIVS
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ GRANTEE                                                                  NOT NULL VARCHAR2(30)
+ OWNER                                                                    NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)
+ GRANTOR                                                                  NOT NULL VARCHAR2(30)
+ PRIVILEGE                                                                NOT NULL VARCHAR2(40)
+ GRANTABLE                                                                         VARCHAR2(3)
+ HIERARCHY                                                                         VARCHAR2(3)
+
+SQL> spool off

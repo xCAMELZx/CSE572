@@ -1,0 +1,15 @@
+SQL> SELECT * FROM HR.LOCATIONS
+  2  WHERE STATE_PROVINCE IS NULL;
+PRESS RETURN TO CONTINUE
+LOCATION_ID STREET_ADDRESS                           POSTAL_CODE  CITY                           STATE_PROVINCE            CO       
+----------- ---------------------------------------- ------------ ------------------------------ ------------------------- --       
+       1000 1297 Via Cola di Rie                     00989        Roma                                                     IT       
+       1100 93091 Calle della Testa                  10934        Venice                                                   IT       
+       1300 9450 Kamiya-cho                          6823         Hiroshima                                                JP       
+       2000 40-5-12 Laogianggen                      190518       Beijing                                                  CN       
+       2300 198 Clementi North                       540198       Singapore                                                SG       
+       2400 8204 Arthur St                                        London                                                   UK       
+
+6 rows selected.
+
+SQL> SPOOL OFF

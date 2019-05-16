@@ -1,0 +1,314 @@
+SQL> desc ALL_USERS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ USERNAME                                                                 NOT NULL VARCHAR2(30)$
+ USER_ID                                                                  NOT NULL NUMBER$
+ CREATED                                                                  NOT NULL DATE$
+$
+SQL> spool off$
+SQL> desc USER_CATALOG$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ TABLE_TYPE                                                                        VARCHAR2(11)$
+$
+SQL> spool off$
+SQL> desc USER_COL_COMMENTS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ COLUMN_NAME                                                              NOT NULL VARCHAR2(30)$
+ COMMENTS                                                                          VARCHAR2(4000)$
+$
+SQL> spool off$
+SQL> desc USER_CONS_COLUMN$
+ERROR:$
+ORA-04043: object USER_CONS_COLUMN does not exist $
+$
+$
+SQL> desc USER_CONS_COLUMNS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ OWNER                                                                    NOT NULL VARCHAR2(30)$
+ CONSTRAINT_NAME                                                          NOT NULL VARCHAR2(30)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ COLUMN_NAME                                                                       VARCHAR2(4000)$
+ POSITION                                                                          NUMBER$
+$
+SQL> spool off$
+SQL> desc USER_CONSTRAINTS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ OWNER                                                                             VARCHAR2(30)$
+ CONSTRAINT_NAME                                                          NOT NULL VARCHAR2(30)$
+ CONSTRAINT_TYPE                                                                   VARCHAR2(1)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ SEARCH_CONDITION                                                                  LONG$
+ R_OWNER                                                                           VARCHAR2(30)$
+ R_CONSTRAINT_NAME                                                                 VARCHAR2(30)$
+ DELETE_RULE                                                                       VARCHAR2(9)$
+ STATUS                                                                            VARCHAR2(8)$
+ DEFERRABLE                                                                        VARCHAR2(14)$
+ DEFERRED                                                                          VARCHAR2(9)$
+ VALIDATED                                                                         VARCHAR2(13)$
+ GENERATED                                                                         VARCHAR2(14)$
+ BAD                                                                               VARCHAR2(3)$
+ RELY                                                                              VARCHAR2(4)$
+ LAST_CHANGE                                                                       DATE$
+ INDEX_OWNER                                                                       VARCHAR2(30)$
+ INDEX_NAME                                                                        VARCHAR2(30)$
+ INVALID                                                                           VARCHAR2(7)$
+ VIEW_RELATED                                                                      VARCHAR2(14)$
+$
+SQL> spool off$
+SQL> desc USER_IND_COLUMNS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ INDEX_NAME                                                                        VARCHAR2(30)$
+ TABLE_NAME                                                                        VARCHAR2(30)$
+ COLUMN_NAME                                                                       VARCHAR2(4000)$
+ COLUMN_POSITION                                                                   NUMBER$
+ COLUMN_LENGTH                                                                     NUMBER$
+ CHAR_LENGTH                                                                       NUMBER$
+ DESCEND                                                                           VARCHAR2(4)$
+$
+SQL> spool off$
+SQL> desc USER_INDEXES$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ INDEX_NAME                                                               NOT NULL VARCHAR2(30)$
+ INDEX_TYPE                                                                        VARCHAR2(27)$
+ TABLE_OWNER                                                              NOT NULL VARCHAR2(30)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ TABLE_TYPE                                                                        VARCHAR2(11)$
+ UNIQUENESS                                                                        VARCHAR2(9)$
+ COMPRESSION                                                                       VARCHAR2(8)$
+ PREFIX_LENGTH                                                                     NUMBER$
+ TABLESPACE_NAME                                                                   VARCHAR2(30)$
+ INI_TRANS                                                                         NUMBER$
+ MAX_TRANS                                                                         NUMBER$
+ INITIAL_EXTENT                                                                    NUMBER$
+ NEXT_EXTENT                                                                       NUMBER$
+ MIN_EXTENTS                                                                       NUMBER$
+ MAX_EXTENTS                                                                       NUMBER$
+ PCT_INCREASE                                                                      NUMBER$
+ PCT_THRESHOLD                                                                     NUMBER$
+ INCLUDE_COLUMN                                                                    NUMBER$
+ FREELISTS                                                                         NUMBER$
+ FREELIST_GROUPS                                                                   NUMBER$
+ PCT_FREE                                                                          NUMBER$
+ LOGGING                                                                           VARCHAR2(3)$
+ BLEVEL                                                                            NUMBER$
+ LEAF_BLOCKS                                                                       NUMBER$
+ DISTINCT_KEYS                                                                     NUMBER$
+ AVG_LEAF_BLOCKS_PER_KEY                                                           NUMBER$
+ AVG_DATA_BLOCKS_PER_KEY                                                           NUMBER$
+ CLUSTERING_FACTOR                                                                 NUMBER$
+ STATUS                                                                            VARCHAR2(8)$
+ NUM_ROWS                                                                          NUMBER$
+ SAMPLE_SIZE                                                                       NUMBER$
+ LAST_ANALYZED                                                                     DATE$
+ DEGREE                                                                            VARCHAR2(40)$
+ INSTANCES                                                                         VARCHAR2(40)$
+ PARTITIONED                                                                       VARCHAR2(3)$
+ TEMPORARY                                                                         VARCHAR2(1)$
+ GENERATED                                                                         VARCHAR2(1)$
+ SECONDARY                                                                         VARCHAR2(1)$
+ BUFFER_POOL                                                                       VARCHAR2(7)$
+ FLASH_CACHE                                                                       VARCHAR2(7)$
+ CELL_FLASH_CACHE                                                                  VARCHAR2(7)$
+ USER_STATS                                                                        VARCHAR2(3)$
+ DURATION                                                                          VARCHAR2(15)$
+ PCT_DIRECT_ACCESS                                                                 NUMBER$
+ ITYP_OWNER                                                                        VARCHAR2(30)$
+ ITYP_NAME                                                                         VARCHAR2(30)$
+ PARAMETERS                                                                        VARCHAR2(1000)$
+ GLOBAL_STATS                                                                      VARCHAR2(3)$
+ DOMIDX_STATUS                                                                     VARCHAR2(12)$
+ DOMIDX_OPSTATUS                                                                   VARCHAR2(6)$
+ FUNCIDX_STATUS                                                                    VARCHAR2(8)$
+ JOIN_INDEX                                                                        VARCHAR2(3)$
+ IOT_REDUNDANT_PKEY_ELIM                                                           VARCHAR2(3)$
+ DROPPED                                                                           VARCHAR2(3)$
+ VISIBILITY                                                                        VARCHAR2(9)$
+ DOMIDX_MANAGEMENT                                                                 VARCHAR2(14)$
+ SEGMENT_CREATED                                                                   VARCHAR2(3)$
+$
+SQL> spool off$
+SQL> desc USER_SYNONYMS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ SYNONYM_NAME                                                             NOT NULL VARCHAR2(30)$
+ TABLE_OWNER                                                                       VARCHAR2(30)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ DB_LINK                                                                           VARCHAR2(128)$
+$
+SQL> spool off$
+SQL> desc USER_TAB_COLUMNS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ COLUMN_NAME                                                              NOT NULL VARCHAR2(30)$
+ DATA_TYPE                                                                         VARCHAR2(106)$
+ DATA_TYPE_MOD                                                                     VARCHAR2(3)$
+ DATA_TYPE_OWNER                                                                   VARCHAR2(30)$
+ DATA_LENGTH                                                              NOT NULL NUMBER$
+ DATA_PRECISION                                                                    NUMBER$
+ DATA_SCALE                                                                        NUMBER$
+ NULLABLE                                                                          VARCHAR2(1)$
+ COLUMN_ID                                                                         NUMBER$
+ DEFAULT_LENGTH                                                                    NUMBER$
+ DATA_DEFAULT                                                                      LONG$
+ NUM_DISTINCT                                                                      NUMBER$
+ LOW_VALUE                                                                         RAW(32)$
+ HIGH_VALUE                                                                        RAW(32)$
+ DENSITY                                                                           NUMBER$
+ NUM_NULLS                                                                         NUMBER$
+ NUM_BUCKETS                                                                       NUMBER$
+ LAST_ANALYZED                                                                     DATE$
+ SAMPLE_SIZE                                                                       NUMBER$
+ CHARACTER_SET_NAME                                                                VARCHAR2(44)$
+ CHAR_COL_DECL_LENGTH                                                              NUMBER$
+ GLOBAL_STATS                                                                      VARCHAR2(3)$
+ USER_STATS                                                                        VARCHAR2(3)$
+ AVG_COL_LEN                                                                       NUMBER$
+ CHAR_LENGTH                                                                       NUMBER$
+ CHAR_USED                                                                         VARCHAR2(1)$
+ V80_FMT_IMAGE                                                                     VARCHAR2(3)$
+ DATA_UPGRADED                                                                     VARCHAR2(3)$
+ HISTOGRAM                                                                         VARCHAR2(15)$
+$
+SQL> spool off$
+SQL> desc USER_TAB_COMMENTS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ TABLE_TYPE                                                                        VARCHAR2(11)$
+ COMMENTS                                                                          VARCHAR2(4000)$
+$
+SQL> spool off$
+SQL> desc USER_TABLES$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ TABLESPACE_NAME                                                                   VARCHAR2(30)$
+ CLUSTER_NAME                                                                      VARCHAR2(30)$
+ IOT_NAME                                                                          VARCHAR2(30)$
+ STATUS                                                                            VARCHAR2(8)$
+ PCT_FREE                                                                          NUMBER$
+ PCT_USED                                                                          NUMBER$
+ INI_TRANS                                                                         NUMBER$
+ MAX_TRANS                                                                         NUMBER$
+ INITIAL_EXTENT                                                                    NUMBER$
+ NEXT_EXTENT                                                                       NUMBER$
+ MIN_EXTENTS                                                                       NUMBER$
+ MAX_EXTENTS                                                                       NUMBER$
+ PCT_INCREASE                                                                      NUMBER$
+ FREELISTS                                                                         NUMBER$
+ FREELIST_GROUPS                                                                   NUMBER$
+ LOGGING                                                                           VARCHAR2(3)$
+ BACKED_UP                                                                         VARCHAR2(1)$
+ NUM_ROWS                                                                          NUMBER$
+ BLOCKS                                                                            NUMBER$
+ EMPTY_BLOCKS                                                                      NUMBER$
+ AVG_SPACE                                                                         NUMBER$
+ CHAIN_CNT                                                                         NUMBER$
+ AVG_ROW_LEN                                                                       NUMBER$
+ AVG_SPACE_FREELIST_BLOCKS                                                         NUMBER$
+ NUM_FREELIST_BLOCKS                                                               NUMBER$
+ DEGREE                                                                            VARCHAR2(10)$
+ INSTANCES                                                                         VARCHAR2(10)$
+ CACHE                                                                             VARCHAR2(5)$
+ TABLE_LOCK                                                                        VARCHAR2(8)$
+ SAMPLE_SIZE                                                                       NUMBER$
+ LAST_ANALYZED                                                                     DATE$
+ PARTITIONED                                                                       VARCHAR2(3)$
+ IOT_TYPE                                                                          VARCHAR2(12)$
+ TEMPORARY                                                                         VARCHAR2(1)$
+ SECONDARY                                                                         VARCHAR2(1)$
+ NESTED                                                                            VARCHAR2(3)$
+ BUFFER_POOL                                                                       VARCHAR2(7)$
+ FLASH_CACHE                                                                       VARCHAR2(7)$
+ CELL_FLASH_CACHE                                                                  VARCHAR2(7)$
+ ROW_MOVEMENT                                                                      VARCHAR2(8)$
+ GLOBAL_STATS                                                                      VARCHAR2(3)$
+ USER_STATS                                                                        VARCHAR2(3)$
+ DURATION                                                                          VARCHAR2(15)$
+ SKIP_CORRUPT                                                                      VARCHAR2(8)$
+ MONITORING                                                                        VARCHAR2(3)$
+ CLUSTER_OWNER                                                                     VARCHAR2(30)$
+ DEPENDENCIES                                                                      VARCHAR2(8)$
+ COMPRESSION                                                                       VARCHAR2(8)$
+ COMPRESS_FOR                                                                      VARCHAR2(12)$
+ DROPPED                                                                           VARCHAR2(3)$
+ READ_ONLY                                                                         VARCHAR2(3)$
+ SEGMENT_CREATED                                                                   VARCHAR2(3)$
+ RESULT_CACHE                                                                      VARCHAR2(7)$
+$
+SQL> spool off$
+SQL> desc USER_TAB_PRIVS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ GRANTEE                                                                  NOT NULL VARCHAR2(30)$
+ OWNER                                                                    NOT NULL VARCHAR2(30)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ GRANTOR                                                                  NOT NULL VARCHAR2(30)$
+ PRIVILEGE                                                                NOT NULL VARCHAR2(40)$
+ GRANTABLE                                                                         VARCHAR2(3)$
+ HIERARCHY                                                                         VARCHAR2(3)$
+$
+SQL> spool off$
+SQL> desc USER_TAB_PRIVS_MADE$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ GRANTEE                                                                  NOT NULL VARCHAR2(30)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ GRANTOR                                                                  NOT NULL VARCHAR2(30)$
+ PRIVILEGE                                                                NOT NULL VARCHAR2(40)$
+ GRANTABLE                                                                         VARCHAR2(3)$
+ HIERARCHY                                                                         VARCHAR2(3)$
+$
+SQL> spool off$
+SQL> desc USER_TAB_PRIVS_RECD$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ OWNER                                                                    NOT NULL VARCHAR2(30)$
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)$
+ GRANTOR                                                                  NOT NULL VARCHAR2(30)$
+ PRIVILEGE                                                                NOT NULL VARCHAR2(40)$
+ GRANTABLE                                                                         VARCHAR2(3)$
+ HIERARCHY                                                                         VARCHAR2(3)$
+$
+SQL> spool off$
+SQL> desc USER_USERS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ USERNAME                                                                 NOT NULL VARCHAR2(30)$
+ USER_ID                                                                  NOT NULL NUMBER$
+ ACCOUNT_STATUS                                                           NOT NULL VARCHAR2(32)$
+ LOCK_DATE                                                                         DATE$
+ EXPIRY_DATE                                                                       DATE$
+ DEFAULT_TABLESPACE                                                       NOT NULL VARCHAR2(30)$
+ TEMPORARY_TABLESPACE                                                     NOT NULL VARCHAR2(30)$
+ CREATED                                                                  NOT NULL DATE$
+ INITIAL_RSRC_CONSUMER_GROUP                                                       VARCHAR2(30)$
+ EXTERNAL_NAME                                                                     VARCHAR2(4000)$
+$
+SQL> spool off$
+SQL> desc USER_VIEWS$
+ Name                                                                     Null?    Type$
+ ------------------------------------------------------------------------ -------- -------------------------------------------------$
+ VIEW_NAME                                                                NOT NULL VARCHAR2(30)$
+ TEXT_LENGTH                                                                       NUMBER$
+ TEXT                                                                              LONG$
+ TYPE_TEXT_LENGTH                                                                  NUMBER$
+ TYPE_TEXT                                                                         VARCHAR2(4000)$
+ OID_TEXT_LENGTH                                                                   NUMBER$
+ OID_TEXT                                                                          VARCHAR2(4000)$
+ VIEW_TYPE_OWNER                                                                   VARCHAR2(30)$
+ VIEW_TYPE                                                                         VARCHAR2(30)$
+ SUPERVIEW_NAME                                                                    VARCHAR2(30)$
+ EDITIONING_VIEW                                                                   VARCHAR2(1)$
+ READ_ONLY                                                                         VARCHAR2(1)$
+$
+SQL> spool off$

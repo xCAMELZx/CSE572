@@ -1,0 +1,9 @@
+SQL> desc USER_SYNONYMS
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ SYNONYM_NAME                                                             NOT NULL VARCHAR2(30)
+ TABLE_OWNER                                                                       VARCHAR2(30)
+ TABLE_NAME                                                               NOT NULL VARCHAR2(30)
+ DB_LINK                                                                           VARCHAR2(128)
+
+SQL> spool off

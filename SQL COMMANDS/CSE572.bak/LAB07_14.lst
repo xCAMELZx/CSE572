@@ -1,0 +1,101 @@
+SQL> REM LAB07_12
+SQL> REM JARRAR, YOUSEF
+SQL> run LAB07_13
+  1  CREATE VIEW dept50 AS
+  2  SELECT employee_id empno, last_name employee,
+  3  department_id deptno
+  4  FROM hr.employees
+  5  WHERE department_id = 50
+  6* WITH CHECK OPTION CONSTRAINT emp_dept_50
+CREATE VIEW dept50 AS
+            *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> DESCRIBE dept50
+ Name                                                                     Null?    Type
+ ------------------------------------------------------------------------ -------- -------------------------------------------------
+ EMPNO                                                                    NOT NULL NUMBER(6)
+ EMPLOYEE                                                                 NOT NULL VARCHAR2(25)
+ DEPTNO                                                                            NUMBER(4)
+
+SQL> SELECT * FROM dept50;
+PRESS RETURN TO CONTINUE
+     EMPNO EMPLOYEE                      DEPTNO                                                                                     
+---------- ------------------------- ----------                                                                                     
+       198 OConnell                          50                                                                                     
+       199 Grant                             50                                                                                     
+       120 Weiss                             50                                                                                     
+       121 Fripp                             50                                                                                     
+       122 Kaufling                          50                                                                                     
+       123 Vollman                           50                                                                                     
+       124 Mourgos                           50                                                                                     
+       125 Nayer                             50                                                                                     
+       126 Mikkilineni                       50                                                                                     
+       127 Landry                            50                                                                                     
+       128 Markle                            50                                                                                     
+       129 Bissot                            50                                                                                     
+       130 Atkinson                          50                                                                                     
+       131 Marlow                            50                                                                                     
+       132 Olson                             50                                                                                     
+       133 Mallin                            50                                                                                     
+       134 Rogers                            50                                                                                     
+       135 Gee                               50                                                                                     
+       136 Philtanker                        50                                                                                     
+       137 Ladwig                            50                                                                                     
+       138 Stiles                            50                                                                                     
+       139 Seo                               50                                                                                     
+       140 Patel                             50                                                                                     
+       141 Rajs                              50                                                                                     
+       142 Davies                            50                                                                                     
+       143 Matos                             50                                                                                     
+       144 Vargas                            50                                                                                     
+PRESS RETURN TO CONTINUE
+     EMPNO EMPLOYEE                      DEPTNO                                                                                     
+---------- ------------------------- ----------                                                                                     
+       180 Taylor                            50                                                                                     
+       181 Fleaur                            50                                                                                     
+       182 Sullivan                          50                                                                                     
+       183 Geoni                             50                                                                                     
+       184 Sarchand                          50                                                                                     
+       185 Bull                              50                                                                                     
+       186 Dellinger                         50                                                                                     
+       187 Cabrio                            50                                                                                     
+       188 Chung                             50                                                                                     
+       189 Dilly                             50                                                                                     
+       190 Gates                             50                                                                                     
+       191 Perkins                           50                                                                                     
+       192 Bell                              50                                                                                     
+       193 Everett                           50                                                                                     
+       194 McCain                            50                                                                                     
+       195 Jones                             50                                                                                     
+       196 Walsh                             50                                                                                     
+       197 Feeney                            50                                                                                     
+
+45 rows selected.
+
+SQL> 
+SQL> SELECT view_name, text FROM user_views;
+PRESS RETURN TO CONTINUE
+VIEW_NAME                      TEXT                                                                                                 
+------------------------------ --------------------------------------------------------------------------------                     
+DEPT50                         SELECT employee_id empno, last_name employee,                                                        
+                               department_id deptno                                                                                 
+                               FROM hr.emplo                                                                                        
+                                                                                                                                    
+EMPLOYEES_VU                   SELECT employee_id, last_name employee, department_id                                                
+                               FROM hr.employees                                                                                    
+                                                                                                                                    
+
+SQL> 
+SQL> UPDATE dept50
+  2  SET deptno = 80
+  3  WHERE Employee = 'Matos';
+UPDATE dept50
+       *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> spool off
